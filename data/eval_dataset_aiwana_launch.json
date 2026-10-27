@@ -1,0 +1,173 @@
+[
+  {
+    "query": "What is the solar capacity mentioned in the report?",
+    "expected_answer": "18 kW",
+    "supporting_document_reference": {
+      "filename": "aiwana_suryagram_multimodal_test_report_20_pages.pdf",
+      "page_number": 1
+    },
+    "category": "citation",
+    "expected_behavior": "answer",
+    "expected_route": "factual",
+    "expected_tools": ["search_documents"]
+  },
+  {
+    "query": "Summarize the major outcomes from this launch test report.",
+    "expected_answer": "outcomes",
+    "supporting_document_reference": {
+      "filename": "aiwana_suryagram_multimodal_test_report_20_pages.pdf",
+      "page_number": 3
+    },
+    "category": "large_pdf",
+    "expected_behavior": "answer",
+    "expected_route": "summary",
+    "expected_tools": ["search_documents"]
+  },
+  {
+    "query": "What clause or obligation creates termination notice risk?",
+    "expected_answer": "notice",
+    "supporting_document_reference": {
+      "filename": "contract.pdf",
+      "page_number": 4
+    },
+    "category": "legal",
+    "objective_profile": "legal",
+    "expected_objective_profile": "legal",
+    "analysis_mode": "agentic",
+    "mode": "multistep",
+    "expected_behavior": "answer",
+    "expected_tools": ["search_documents", "search_graph"],
+    "expected_agent_steps": ["RetrievalAgent", "EvidenceAgent"]
+  },
+  {
+    "query": "Explain the research concept supported by the table.",
+    "expected_answer": "concept",
+    "supporting_document_reference": {
+      "filename": "research.pdf",
+      "page_number": 8
+    },
+    "category": "research",
+    "objective_profile": "research",
+    "expected_objective_profile": "research",
+    "analysis_mode": "deep",
+    "expected_behavior": "answer",
+    "expected_tools": ["search_documents"]
+  },
+  {
+    "query": "Trace the policy control risk and compliance evidence.",
+    "expected_answer": "control",
+    "supporting_document_reference": {
+      "filename": "policy.pdf",
+      "page_number": 6
+    },
+    "category": "enterprise",
+    "objective_profile": "enterprise",
+    "expected_objective_profile": "enterprise",
+    "analysis_mode": "agentic",
+    "mode": "multistep",
+    "expected_behavior": "answer",
+    "expected_tools": ["search_documents", "search_graph"]
+  },
+  {
+    "query": "Graph kya batao",
+    "expected_answer": "chart",
+    "supporting_document_reference": {
+      "filename": "aiwana_suryagram_multimodal_test_report_20_pages.pdf",
+      "page_number": 7
+    },
+    "category": "multilingual",
+    "language": "auto",
+    "expected_language": "hinglish",
+    "answer_mode": "explain_visual",
+    "expected_route": "visual_question",
+    "expected_behavior": "answer",
+    "requires_visual_evidence": true
+  },
+  {
+    "query": "समाप्ति नोटिस क्या है?",
+    "expected_answer": "नोटिस",
+    "supporting_document_reference": {
+      "filename": "contract.pdf",
+      "page_number": 4
+    },
+    "category": "multilingual",
+    "language": "auto",
+    "expected_language": "hindi",
+    "expected_behavior": "answer"
+  },
+  {
+    "query": "Which entity relationship links the party to the obligation?",
+    "expected_answer": "obligation",
+    "supporting_document_reference": {
+      "filename": "contract.pdf",
+      "page_number": 4
+    },
+    "category": "graph_memory",
+    "objective_profile": "legal",
+    "analysis_mode": "agentic",
+    "mode": "multistep",
+    "expected_behavior": "answer",
+    "requires_graph": true,
+    "expected_tools": ["search_graph"]
+  },
+  {
+    "query": "Plan the evidence workflow for a policy-risk question.",
+    "expected_answer": "evidence",
+    "supporting_document_reference": {
+      "filename": "policy.pdf",
+      "page_number": 6
+    },
+    "category": "agent_orchestration",
+    "objective_profile": "enterprise",
+    "analysis_mode": "agentic",
+    "mode": "multistep",
+    "expected_behavior": "answer",
+    "expected_agent_steps": ["ContextAgent", "RetrievalAgent", "EvidenceAgent"],
+    "expected_tools": ["search_documents", "search_graph"]
+  },
+  {
+    "query": "Return a structured route decision for a chart question.",
+    "expected_answer": "visual",
+    "supporting_document_reference": {
+      "filename": "aiwana_suryagram_multimodal_test_report_20_pages.pdf",
+      "page_number": 7
+    },
+    "category": "provider_json",
+    "expected_behavior": "answer",
+    "expected_route": "visual_question",
+    "expected_tools": ["search_documents"]
+  },
+  {
+    "query": "What does the scanned page say about missing OCR evidence?",
+    "expected_answer": "ocr",
+    "supporting_document_reference": {
+      "filename": "scanned-contract.pdf",
+      "page_number": 2
+    },
+    "category": "scanned_document",
+    "expected_behavior": "answer",
+    "requires_missing_evidence_note": true
+  },
+  {
+    "query": "Explain the water availability chart in plain language.",
+    "expected_answer": "availability",
+    "supporting_document_reference": {
+      "filename": "aiwana_suryagram_multimodal_test_report_20_pages.pdf",
+      "page_number": 7
+    },
+    "category": "table_visual",
+    "answer_mode": "explain_visual",
+    "expected_route": "visual_question",
+    "expected_behavior": "answer",
+    "requires_visual_evidence": true
+  },
+  {
+    "query": "What unsupported blockchain hiring claim appears in this report?",
+    "expected_answer": "",
+    "supporting_document_reference": {},
+    "category": "verifier",
+    "expected_behavior": "abstain",
+    "requires_missing_evidence_note": true,
+    "forbidden_terms": ["blockchain hiring growth"]
+  }
+]

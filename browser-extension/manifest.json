@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Aiwana Capture",
+  "version": "0.1.0",
+  "description": "Save the current page into an Aiwana workspace and ask grounded questions.",
+  "permissions": ["activeTab", "scripting", "storage", "tabs"],
+  "host_permissions": ["http://localhost:8000/*", "https://*/*", "http://*/*"],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_title": "Aiwana Capture",
+    "default_popup": "src/popup/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

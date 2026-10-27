@@ -1,0 +1,1 @@
+Aiwana production smoke source. This validates authenticated ingestion and queue readiness.

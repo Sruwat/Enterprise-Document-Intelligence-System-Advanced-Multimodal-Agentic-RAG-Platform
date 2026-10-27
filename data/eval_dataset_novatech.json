@@ -1,0 +1,50 @@
+[
+  {
+    "query": "What was NovaTech's total revenue in FY 2024?",
+    "ground_truth": "NovaTech's total revenue in FY 2024 was $842 million."
+  },
+  {
+    "query": "How many employees did NovaTech have as of December 31, 2024?",
+    "ground_truth": "NovaTech employed 5,340 people globally as of December 31, 2024."
+  },
+  {
+    "query": "What was the gross margin of NovaCloud?",
+    "ground_truth": "NovaCloud's gross margin was 68%."
+  },
+  {
+    "query": "When was NovaSense Pro X7 launched and at what price?",
+    "ground_truth": "NovaSense Pro X7 launched in March 2024 at $149 per unit."
+  },
+  {
+    "query": "Which product line was the fastest growing in FY 2024?",
+    "ground_truth": "NovaCloud was the fastest-growing product line, with 47.2% year-over-year growth."
+  },
+  {
+    "query": "Which region had the highest operating cost and why?",
+    "ground_truth": "EMEA had the highest operating cost at $94 million, driven by EU compliance investments of $22 million and the Amsterdam office expansion."
+  },
+  {
+    "query": "Did APAC surpass North America in both shipments and revenue?",
+    "ground_truth": "APAC surpassed North America in unit shipments, with 2.1 million units versus 1.8 million, but North America still had higher revenue at $378 million versus APAC's $189 million."
+  },
+  {
+    "query": "What was NovaTech's FY 2025 R&D budget and what was it meant to fund?",
+    "ground_truth": "The Board approved a $150 million R&D budget for FY 2025 to support quantum-sensing integration and AI-assisted diagnostics."
+  },
+  {
+    "query": "What is the difference between NovaSense ASP and NovaSense Pro X7 unit price?",
+    "ground_truth": "NovaSense ASP across all products was $87, while the NovaSense Pro X7 premium SKU was priced at $149 per unit."
+  },
+  {
+    "query": "What was the company's blended gross margin in FY 2024?",
+    "ground_truth": "The company's blended gross margin in FY 2024 was 53.8%."
+  },
+  {
+    "query": "What was NovaTech's employee headcount in 2022?",
+    "ground_truth": "The document does not provide NovaTech's employee headcount for 2022."
+  },
+  {
+    "query": "What did the report say about blockchain hiring growth in Europe?",
+    "ground_truth": "The document does not mention blockchain hiring growth in Europe."
+  }
+]

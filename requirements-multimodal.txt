@@ -1,0 +1,4 @@
+# Optional Aiwana OCR pipeline dependencies.
+# Page previews and image metadata are already included in the normal runtime.
+paddlepaddle>=3.0.0
+paddleocr>=3.0.0

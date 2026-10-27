@@ -1,0 +1,288 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Pages /Count 8 /Kids [4 0 R 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R] >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+3 0 obj
+<< /Length 798 >>
+stream
+BT
+/F1 12 Tf
+50 780 Td
+14 TL
+(Adaptive RAG Test Pack - Page 1) Tj
+T*
+(Company: Atlas Retail Analytics Pvt Ltd) Tj
+T*
+(Document type: Internal operations and finance briefing for Q1 2026.) Tj
+T*
+(Headquarters: Bengaluru, India.) Tj
+T*
+(Employees: 148 full-time and 22 contractors.) Tj
+T*
+(Core products: ShelfVision, PromoPulse, and DemandLens.) Tj
+T*
+(Primary customers: retail chains, FMCG brands, and field audit teams.) Tj
+T*
+(Q1 2026 revenue: INR 4.8 crore.) Tj
+T*
+(Q1 2026 gross margin: 61 percent.) Tj
+T*
+(Largest client: NovaMart, contributing 28 percent of quarterly revenue.) Tj
+T*
+(Customer retention rate: 93 percent.) Tj
+T*
+(Board priority: improve enterprise onboarding speed and reduce support backlog.) Tj
+T*
+(Testing focus: factual retrieval, entities, and numeric grounding.) Tj
+ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 2 0 R >> >> /Contents 3 0 R >>
+endobj
+5 0 obj
+<< /Length 753 >>
+stream
+BT
+/F1 12 Tf
+50 780 Td
+14 TL
+(Adaptive RAG Test Pack - Page 2) Tj
+T*
+(Operational KPIs for Q1 2026:) Tj
+T*
+(Average onboarding time dropped from 18 days in Q4 2025 to 11 days in Q1 2026.) Tj
+T*
+(Mean first response time for support tickets: 42 minutes.) Tj
+T*
+(Critical issue resolution SLA target: 4 hours.) Tj
+T*
+(Actual critical issue resolution average: 5.3 hours.) Tj
+T*
+(Monthly active dashboard users: 12,400.) Tj
+T*
+(Mobile audit submission success rate: 97.2 percent.) Tj
+T*
+(North region accounted for 39 percent of audit volume.) Tj
+T*
+(South region accounted for 33 percent of audit volume.) Tj
+T*
+(The operations team plans to hire 4 implementation specialists in Q2 2026.) Tj
+T*
+(Testing focus: comparison, trend, and KPI questions.) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 2 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 748 >>
+stream
+BT
+/F1 12 Tf
+50 780 Td
+14 TL
+(Adaptive RAG Test Pack - Page 3) Tj
+T*
+(Roadmap and risks:) Tj
+T*
+(Project Falcon launches on 15 June 2026 and adds anomaly alerts to ShelfVision.) Tj
+T*
+(Project Beacon launches on 30 July 2026 and adds multilingual dashboards.) Tj
+T*
+(Main risk one: delayed customer data mapping for enterprise accounts.) Tj
+T*
+(Main risk two: dependency on a single OCR vendor for receipt ingestion.) Tj
+T*
+(Mitigation: build fallback ingestion with template-based parsing by August 2026.) Tj
+T*
+(Security note: all customer exports must be encrypted at rest and in transit.) Tj
+T*
+(Compliance target: complete ISO 27001 gap review by 20 August 2026.) Tj
+T*
+(Testing focus: roadmap, deadline, risk, and mitigation questions.) Tj
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 2 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 648 >>
+stream
+BT
+/F1 12 Tf
+50 780 Td
+14 TL
+(Adaptive RAG Test Pack - Page 4) Tj
+T*
+(Commercial terms summary:) Tj
+T*
+(Starter plan price: INR 45000 per month for up to 25 stores.) Tj
+T*
+(Growth plan price: INR 120000 per month for up to 100 stores.) Tj
+T*
+(Enterprise plan price: custom pricing with annual contract.) Tj
+T*
+(Payment terms: net 30 days from invoice date.) Tj
+T*
+(Discount policy: 8 percent annual prepayment discount.) Tj
+T*
+(Pilot duration: 45 days.) Tj
+T*
+(Success criteria for pilot: at least 95 percent image processing uptime and 20 percent faster audit closure.) Tj
+T*
+(Testing focus: pricing, policy, and success-criteria questions.) Tj
+ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 2 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 583 >>
+stream
+BT
+/F1 12 Tf
+50 780 Td
+14 TL
+(Adaptive RAG Test Pack - Page 5) Tj
+T*
+(Customer case notes:) Tj
+T*
+(NovaMart expanded from 120 stores to 180 stores in six months.) Tj
+T*
+(FreshBasket requested multilingual dashboards for store managers in South India.) Tj
+T*
+(UrbanCart reported a 17 percent reduction in audit closure time after pilot rollout.) Tj
+T*
+(RetailHub paused rollout because of delayed ERP mapping.) Tj
+T*
+(Customer success team flagged NovaMart as the best reference account for enterprise sales.) Tj
+T*
+(Testing focus: case-based retrieval and customer comparison.) Tj
+ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 2 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 496 >>
+stream
+BT
+/F1 12 Tf
+50 780 Td
+14 TL
+(Adaptive RAG Test Pack - Page 6) Tj
+T*
+(Finance breakdown:) Tj
+T*
+(Subscription revenue: INR 3.2 crore.) Tj
+T*
+(Services revenue: INR 1.1 crore.) Tj
+T*
+(Support and training revenue: INR 0.5 crore.) Tj
+T*
+(Sales and marketing spend: INR 0.9 crore.) Tj
+T*
+(Product and engineering spend: INR 1.4 crore.) Tj
+T*
+(Operations spend: INR 0.7 crore.) Tj
+T*
+(Net revenue retention: 118 percent.) Tj
+T*
+(Testing focus: financial decomposition and percentage reasoning.) Tj
+ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 2 0 R >> >> /Contents 13 0 R >>
+endobj
+15 0 obj
+<< /Length 496 >>
+stream
+BT
+/F1 12 Tf
+50 780 Td
+14 TL
+(Adaptive RAG Test Pack - Page 7) Tj
+T*
+(People and hiring plan:) Tj
+T*
+(Current teams: product 24, engineering 46, operations 31, customer success 19, sales 18, leadership 10.) Tj
+T*
+(Open roles for Q2 2026: 2 product analysts, 3 backend engineers, 4 implementation specialists, and 1 security lead.) Tj
+T*
+(Attrition in Q1 2026: 3.1 percent.) Tj
+T*
+(Employee engagement score: 8.4 out of 10.) Tj
+T*
+(Testing focus: hiring, team-size, and headcount questions.) Tj
+ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 2 0 R >> >> /Contents 15 0 R >>
+endobj
+17 0 obj
+<< /Length 368 >>
+stream
+BT
+/F1 12 Tf
+50 780 Td
+14 TL
+(Adaptive RAG Test Pack - Page 8) Tj
+T*
+(What is not included in this document:) Tj
+T*
+(The CEO name is not listed here.) Tj
+T*
+(The company EBITDA is not listed here.) Tj
+T*
+(No CRM vendor name is provided here.) Tj
+T*
+(No office address beyond city is provided here.) Tj
+T*
+(Testing focus: abstention and hallucination resistance.) Tj
+ET
+endstream
+endobj
+18 0 obj
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 2 0 R >> >> /Contents 17 0 R >>
+endobj
+19 0 obj
+<< /Type /Catalog /Pages 1 0 R >>
+endobj
+xref
+0 20
+0000000000 65535 f 
+0000000015 00000 n 
+0000000119 00000 n 
+0000000189 00000 n 
+0000001038 00000 n 
+0000001164 00000 n 
+0000001968 00000 n 
+0000002094 00000 n 
+0000002893 00000 n 
+0000003019 00000 n 
+0000003718 00000 n 
+0000003845 00000 n 
+0000004480 00000 n 
+0000004608 00000 n 
+0000005156 00000 n 
+0000005284 00000 n 
+0000005832 00000 n 
+0000005960 00000 n 
+0000006380 00000 n 
+0000006508 00000 n 
+trailer
+<< /Size 20 /Root 19 0 R >>
+startxref
+6558
+%%EOF

@@ -1,0 +1,8 @@
+{
+  "active_collection": "aiwana_chunks_v2",
+  "legacy_collections": [
+    "rag_chunks"
+  ],
+  "updated_at": "2026-05-30T07:31:56.950266",
+  "rollback_note": "Legacy collections are retained until v2 retrieval is validated in production."
+}

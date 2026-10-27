@@ -1,0 +1,165 @@
+.app-shell {
+  display: grid;
+  grid-template-columns: 272px minmax(0, 1fr);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(135deg, var(--bg), var(--bg-soft));
+  background-size: 56px 56px, 56px 56px, auto;
+}
+
+.app-main {
+  min-width: 0;
+  padding: 18px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 18px;
+  border-right: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel-solid) 88%, transparent);
+  padding: 16px;
+}
+
+.brand-row,
+.topbar,
+.topbar-actions,
+.workspace-switcher,
+.status-toast,
+.quick-actions,
+.panel-head.row,
+.chat-toolbar,
+.composer,
+.metric-row,
+.identity-card,
+.key-row,
+.section-title {
+  display: flex;
+  align-items: center;
+}
+
+.brand-row {
+  gap: 11px;
+}
+
+.brand-row strong,
+.brand-row span,
+.panel-head strong,
+.panel-head span,
+.metric-card span,
+.metric-card strong,
+.mini-metric span,
+.mini-metric strong,
+.source-card strong,
+.source-card span,
+.chat-link strong,
+.chat-link span {
+  display: block;
+}
+
+.brand-row span,
+.panel-head span,
+.metric-card span,
+.mini-metric span,
+.source-card span,
+.chat-link span,
+.page-heading p,
+.page-heading span,
+.message,
+.empty-state,
+.disabled-state,
+.inline-empty,
+.timeline-row span,
+.ocr-card span,
+.citation-card span,
+.artifact-card span,
+.agent-step span {
+  color: var(--muted);
+}
+
+.app-main {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--panel-solid) 86%, transparent);
+  padding: 10px;
+  backdrop-filter: blur(16px);
+}
+
+.topbar-actions {
+  gap: 8px;
+}
+
+.screen-grid,
+.chat-screen,
+.sources-screen,
+.data-vault-screen,
+.evidence-screen,
+.admin-screen,
+.settings-screen {
+  display: grid;
+  gap: 14px;
+}
+
+.dashboard-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.chat-screen {
+  grid-template-columns: 300px minmax(0, 1fr);
+  align-items: start;
+}
+
+.sources-screen {
+  grid-template-columns: minmax(260px, 0.72fr) minmax(340px, 1fr) minmax(320px, 0.86fr);
+  align-items: start;
+}
+
+.data-vault-screen {
+  grid-template-columns: minmax(280px, 0.74fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.data-vault-hero,
+.vault-overview {
+  grid-column: 1 / -1;
+}
+
+.evidence-grid {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+}
+
+.evidence-grid .evidence-column:last-child {
+  grid-column: 2 / -1;
+}
+
+.admin-screen {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+}
+
+.admin-screen .readiness-panel {
+  grid-column: 1 / -1;
+}
+
+.settings-screen {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}

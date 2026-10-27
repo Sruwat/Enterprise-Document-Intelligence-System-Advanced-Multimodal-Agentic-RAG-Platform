@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "path": "data\\validation_latency\\aiwana_200_page_multimodal_benchmark.pdf",
+  "pages": 200,
+  "chunks": 270,
+  "parse_ms": 33429.64,
+  "chunk_ms": 23.33,
+  "ocr": "disabled",
+  "note": "Embedding, Qdrant, graph, and OCR timings require a live configured stack and are not inferred here."
+}

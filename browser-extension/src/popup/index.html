@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aiwana Capture</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <strong>Aiwana Capture</strong>
+      <label>API base <input id="apiBase" value="http://localhost:8000" /></label>
+      <label>Workspace <input id="workspaceId" value="default" /></label>
+      <label>Token <input id="token" type="password" /></label>
+      <button id="saveSettings">Save settings</button>
+      <button id="capturePage">Save current page</button>
+      <button id="summarizePage">Summarize page</button>
+      <button id="extractEntities">Extract entities</button>
+      <label>Ask page <input id="question" placeholder="What is this page about?" /></label>
+      <button id="askPage">Ask current page</button>
+      <p id="status"></p>
+      <pre id="result"></pre>
+    </main>
+    <script src="./popup.js"></script>
+  </body>
+</html>

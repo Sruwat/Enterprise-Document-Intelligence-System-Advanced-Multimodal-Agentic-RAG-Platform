@@ -1,0 +1,126 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: aiwana-postgres
+    environment:
+      POSTGRES_DB: aiwana
+      POSTGRES_USER: aiwana
+      POSTGRES_PASSWORD: aiwana
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aiwana -d aiwana"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  redis:
+    image: redis:7-alpine
+    container_name: aiwana-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: adaptive-rag-qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      test: ["CMD", "bash", "-lc", "</dev/tcp/127.0.0.1/6333"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      EMBEDDING_MODEL: BAAI/bge-m3
+      EMBEDDING_MODEL_PATH: /app/models/bge-m3
+      RERANKER_MODEL: BAAI/bge-reranker-v2-m3
+      RERANKER_MODEL_PATH: /app/models/bge-reranker-v2-m3
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_COLLECTION: aiwana_chunks_v2
+      ENABLE_NAMED_VECTORS: "true"
+      ENABLE_BGE_M3_SPARSE: "false"
+      ENABLE_MULTIMODAL: "true"
+      ENABLE_PERSISTENT_MEMORY: "true"
+      ENABLE_SECURITY_HEADERS: "true"
+      CORS_ALLOWED_ORIGINS: http://localhost:3000,http://127.0.0.1:3000,http://localhost:8501,http://127.0.0.1:8501
+      DATA_DIR: /workspace/runtime_data
+      UPLOAD_DIR: /workspace/runtime_data/uploads
+      LOG_DIR: /workspace/runtime_data/logs
+      METADATA_DB: /workspace/runtime_data/metadata.db
+      BACKUP_DIR: /workspace/runtime_data/backups
+      DATABASE_URL: postgresql+psycopg://aiwana:aiwana@postgres:5432/aiwana
+      DATABASE_BACKEND: postgres
+      SQLITE_DATABASE_URL: sqlite:////workspace/runtime_data/metadata.db
+      ENABLE_SQLITE_FALLBACK: "false"
+      REDIS_URL: redis://redis:6379/0
+      ENABLE_REDIS: "true"
+      RATE_LIMIT_BACKEND: redis
+      SESSION_BACKEND: redis
+      AGENT_STATE_BACKEND: redis
+      CACHE_BACKEND: redis
+      OBJECT_STORAGE_BACKEND: local
+      OBJECT_STORAGE_LOCAL_DIR: /workspace/runtime_data/artifacts
+      ENABLE_GRAPH_MEMORY: "true"
+      GRAPH_BACKEND: postgres
+      ENABLE_REAL_ORCHESTRATOR: "true"
+      REQUIRE_AUTH: "true"
+      ENABLE_LOCAL_USER_FALLBACK: "false"
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
+    volumes:
+      - backend_data:/workspace/runtime_data
+      - backup_data:/workspace/runtime_data/backups
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=10).read()"]
+      interval: 20s
+      timeout: 10s
+      retries: 12
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 20s
+      timeout: 10s
+      retries: 12
+
+volumes:
+  postgres_data:
+  redis_data:
+  qdrant_data:
+  backend_data:
+  backup_data:

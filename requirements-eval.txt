@@ -1,0 +1,4 @@
+-r requirements-backend.txt
+ragas>=0.2.0
+datasets>=2.20.0
+pytest>=8.3.0

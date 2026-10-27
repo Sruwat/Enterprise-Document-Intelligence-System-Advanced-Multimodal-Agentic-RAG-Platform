@@ -1,0 +1,42 @@
+# Secrets and local configuration
+.env
+.env.*.local
+!.env.example
+!.env.production.example
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Runtime output and local databases
+logs/
+runtime_data/
+tmp_diag/
+data/backups/
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+data/proposal_qdrant/
+
+# Local model weights and vector stores
+models/*
+!models/.gitkeep
+data/qdrant/
+
+# Frontend/build output
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/test-results/
+frontend/playwright-report/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

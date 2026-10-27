@@ -1,0 +1,1 @@
+Aiwana startup smoke source. This document verifies fresh pasted-text ingestion, chunking, embedding, Qdrant vector upsert, sparse index update, and grounded retrieval. Unique check phrase: indigo telemetry clause requires 21 day review.

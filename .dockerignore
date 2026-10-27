@@ -1,0 +1,13 @@
+.venv
+__pycache__
+.pytest_cache
+.mypy_cache
+.git
+.gitignore
+data/*
+!data/eval_dataset_novatech.json
+!data/sample_report.pdf
+*.pyc
+*.pyo
+*.pyd
+docker-compose.yml

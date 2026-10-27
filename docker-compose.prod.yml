@@ -1,0 +1,128 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-aiwana}
+      POSTGRES_USER: ${POSTGRES_USER:-aiwana}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-aiwana} -d ${POSTGRES_DB:-aiwana}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      test: ["CMD", "bash", "-lc", "</dev/tcp/127.0.0.1/6333"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  neo4j:
+    image: neo4j:5-community
+    profiles: ["graph"]
+    environment:
+      NEO4J_AUTH: ${NEO4J_AUTH:-neo4j/change-me}
+    volumes:
+      - neo4j_data:/data
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?MINIO_ROOT_USER is required}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?MINIO_ROOT_PASSWORD is required}
+    volumes:
+      - minio_data:/data
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    env_file:
+      - path: .env.production
+        required: false
+    environment:
+      APP_ENV: production
+      REQUIRE_AUTH: "true"
+      ENABLE_LOCAL_USER_FALLBACK: "false"
+      DATABASE_BACKEND: postgres
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-aiwana}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-aiwana}
+      ENABLE_REDIS: "true"
+      REDIS_URL: redis://redis:6379/0
+      RATE_LIMIT_BACKEND: redis
+      SESSION_BACKEND: redis
+      AGENT_STATE_BACKEND: redis
+      CACHE_BACKEND: redis
+      QDRANT_URL: http://qdrant:6333
+      ENABLE_GRAPH_MEMORY: "true"
+      ENABLE_REAL_ORCHESTRATOR: "true"
+      ENABLE_QUEUE_INGESTION: "true"
+      OBJECT_STORAGE_BACKEND: s3
+      S3_ENDPOINT_URL: http://minio:9000
+      NEO4J_URI: bolt://neo4j:7687
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
+    command: ["sh", "-c", "alembic upgrade head && uvicorn app.api.main:app --host 0.0.0.0 --port 8000"]
+    ports:
+      - "8000:8000"
+
+  worker:
+    build:
+      context: .
+      dockerfile: docker/worker.Dockerfile
+    env_file:
+      - path: .env.production
+        required: false
+    environment:
+      APP_ENV: production
+      DATABASE_BACKEND: postgres
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-aiwana}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-aiwana}
+      ENABLE_REDIS: "true"
+      ENABLE_QUEUE_INGESTION: "true"
+      REDIS_URL: redis://redis:6379/0
+      QDRANT_URL: http://qdrant:6333
+      NEO4J_URI: bolt://neo4j:7687
+    depends_on:
+      api:
+        condition: service_started
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:?NEXT_PUBLIC_API_BASE_URL is required}
+    depends_on:
+      api:
+        condition: service_started
+    ports:
+      - "3000:3000"
+
+volumes:
+  postgres_data:
+  redis_data:
+  qdrant_data:
+  minio_data:
+  neo4j_data:
